@@ -68,7 +68,7 @@ define beaver::output::kafka(
 
   file_fragment{ "output_kafka_${::fqdn}":
     tag     => "beaver_config_${::fqdn}",
-    content => "{opt_host}${opt_topic}${opt_client_id}\n"
+    content => "{opt_host}${opt_topic}${opt_client_id}\n",
     order   => 20
   }
 

@@ -147,7 +147,7 @@ class beaver(
 
   validate_string($hostname)
 
-  if ! ($transport in [ 'redis', 'rabbitmq', 'zmq', 'udp', 'mqtt', 'sqs' ]) {
+  if ! ($transport in [ 'redis', 'rabbitmq', 'zmq', 'udp', 'mqtt', 'sqs', 'kafka' ]) {
     fail("\"${transport}\" is not a valid transport parameter value")
   }
 

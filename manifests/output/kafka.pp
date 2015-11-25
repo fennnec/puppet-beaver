@@ -41,7 +41,7 @@
 define beaver::output::kafka(
   $host,
   $port      = 9092,
-  $topic     = 'logstash-topic'
+  $topic     = 'logstash-topic',
   $client_id = 'beaver-kafka'
 ) {
 

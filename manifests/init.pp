@@ -116,6 +116,7 @@ class beaver(
   $max_failure   = 7,
   $hostname      = $::fqdn,
   $transport     = 'redis'
+  $logstash_version = 0
 ) inherits beaver::params {
 
   #### Validate parameters
@@ -145,13 +146,17 @@ class beaver(
     fail("\"${max_failure}\" is not a valid max_failure parameter value")
   }
 
+  if ! is_numeric($logstash_version) {
+    fail("\"${logstash_version}\" is not a valid logstash_version parameter value")
+  }
+
   validate_string($hostname)
 
   if ! ($transport in [ 'redis', 'rabbitmq', 'zmq', 'udp', 'mqtt', 'sqs', 'kafka' ]) {
     fail("\"${transport}\" is not a valid transport parameter value")
   }
 
-  $config = "hostname: ${hostname}\nformat: ${format}\nrespawn_delay: ${respawn_delay}\nmax_failure: ${max_failure}\ntransport: ${transport}"
+  $config = "hostname: ${hostname}\nformat: ${format}\nrespawn_delay: ${respawn_delay}\nmax_failure: ${max_failure}\ntransport: ${transport}\nlogstash_version: ${logstash_version}"
 
   #### Manage actions
 

@@ -115,8 +115,8 @@ class beaver(
   $respawn_delay = 3,
   $max_failure   = 7,
   $hostname      = $::fqdn,
-  $transport     = 'redis'
-  $logstash_version = 0
+  $transport     = 'redis',
+  $logstash_version = 0,
 ) inherits beaver::params {
 
   #### Validate parameters

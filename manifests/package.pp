@@ -51,11 +51,12 @@ class beaver::package {
     $package_ensure = 'purged'
   }
 
-  # action
-  package { $beaver::params::package:
-    ensure   => $package_ensure,
-    provider => 'pip',
-    require  => Class['python'],
+  if $beaver::manage_python {
+    # action
+    package { $beaver::params::package:
+      ensure   => $package_ensure,
+      provider => 'pip',
+      require  => Class['python'],
+    }
   }
-
 }

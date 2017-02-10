@@ -40,6 +40,9 @@ class beaver::params {
   # service status
   $status = 'enabled'
 
+  # manage python package
+  $manage_python = true
+
   #### Internal module values
 
   # packages
